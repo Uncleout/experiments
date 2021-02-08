@@ -1,22 +1,23 @@
 ﻿<!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>%UNITY_WEB_NAME%</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.javascript"></script>
-    <script src="Build/TestWebGL3.loader.js"></script>
-    <script>
-        var gameInstance = UnityLoader.instantiate("gameContainer", "Build", {onProgress: UnityProgress});
-    </script>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>MemeGame | PewDiePie Game: Subscribe cliker</title>
 </head>
-<body>
-<div class="webgl-content">
-    <div id="gameContainer" style="width: %UNITY_WIDTH%px; height: %UNITY_HEIGHT%px"></div>
-</div>
-
-<script src="TemplateData/responsive.javascript"></script>
+<body style="text-align: center">
+	<canvas id="unity-canvas" style="width: 100%; height: 100%; background: url('Build/TestWebGL5.jpg') center / cover"></canvas>
+	<script src="Build/TestWebGL5.loader.js"></script>
+	<script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/TestWebGL5.data",
+        frameworkUrl: "Build/TestWebGL5.framework.js",
+        codeUrl: "Build/TestWebGL5.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "VALUMEGames",
+        productName: "PewDiePie Game: Subscribe cliker",
+        productVersion: "0.2",
+      });
+	</script>
 </body>
 </html>

@@ -27,11 +27,12 @@
     </div>
     <script>
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/TestWebGL1.loader.js";
+      var loaderUrl = buildUrl + "/TestWebGL2.asm.loader.js";
       var config = {
-        dataUrl: buildUrl + "/TestWebGL1.data",
-        frameworkUrl: buildUrl + "/TestWebGL1.framework.js",
-        codeUrl: buildUrl + "/TestWebGL1.wasm",
+        dataUrl: buildUrl + "/TestWebGL2.data",
+        frameworkUrl: buildUrl + "/TestWebGL2.asm.framework.js",
+        codeUrl: buildUrl + "/TestWebGL2.asm.js",
+        memoryUrl: buildUrl + "/TestWebGL2.asm.mem",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "VALUMEGames",
         productName: "PewDiePie Game: Subscribe cliker",
@@ -56,7 +57,7 @@
         canvas.style.width = "540px";
         canvas.style.height = "960px";
       }
-      canvas.style.background = "url('" + buildUrl + "/TestWebGL1.jpg') center / cover";
+      canvas.style.background = "url('" + buildUrl + "/TestWebGL2.jpg') center / cover";
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");

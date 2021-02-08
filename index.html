@@ -5,19 +5,21 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>MemeGame | PewDiePie Game: Subscribe cliker</title>
 </head>
-<body style="text-align: center">
-	<canvas id="unity-canvas" style="width: 100%; height: 100%; background: url('Build/TestWebGL5.jpg') center / cover"></canvas>
-	<script src="Build/TestWebGL5.loader.js"></script>
+<body style="text-align: center";>
+	<canvas id="unity-canvas" style="width: auto; height: 90%; background: url('Build/TestWebGL7.jpg') center / cover"></canvas>
+	<script src="Build/TestWebGL7.loader.js"></script>
 	<script>
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/TestWebGL5.data",
-        frameworkUrl: "Build/TestWebGL5.framework.js",
-        codeUrl: "Build/TestWebGL5.wasm",
+        createUnityInstance(document.querySelector("#unity-canvas"), {
+        orientation: "PORTRAIT",
+        dataUrl: "Build/TestWebGL7.data",
+        frameworkUrl: "Build/TestWebGL7.framework.js",
+        codeUrl: "Build/TestWebGL7.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "VALUMEGames",
         productName: "PewDiePie Game: Subscribe cliker",
         productVersion: "0.2",
       });
 	</script>
+<div id="unity-canvas" style="width: auto; height: 90%; position: absolute; margin: auto"></div>
 </body>
 </html>

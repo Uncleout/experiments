@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=100%, initial-scale=1.0, user-scalable=no">
-    <title>PewDiePie Game: Subscribe cliker</title>
+    <title>MemeGame</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -25,15 +25,15 @@
     <script>
       const hideFullScreenButton = "1";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/TestWebGL8.loader.js";
+      const loaderUrl = buildUrl + "/webgl1.loader.js";
       const config = {
-        dataUrl: buildUrl + "/TestWebGL8.data",
-        frameworkUrl: buildUrl + "/TestWebGL8.framework.js",
-        codeUrl: buildUrl + "/TestWebGL8.wasm",
+        dataUrl: buildUrl + "/webgl1.data",
+        frameworkUrl: buildUrl + "/webgl1.framework.js",
+        codeUrl: buildUrl + "/webgl1.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "VALUMEGames",
-        productName: "PewDiePie Game: Subscribe cliker",
-        productVersion: "0.2",
+        companyName: "OneManStruggle",
+        productName: "MemeGame",
+        productVersion: "1.0",
       };
 
       const container = document.querySelector("#unity-container");
@@ -63,7 +63,6 @@
         container.className = "unity-mobile";
         config.devicePixelRatio = 1;
       }
-      canvas.style.background = "url('" + buildUrl + "/TestWebGL8.jpg') center / cover";
       loadingCover.style.display = "";
 
       const script = document.createElement("script");

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=100%, initial-scale=1.0, user-scalable=no">
-    <title>PewDiePie Game: Subscribe cliker</title>
+    <title>MemeGame</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -25,15 +25,15 @@
       <script>
       const hideFullScreenButton = "1";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/TestWebGL8.loader.js";
+      const loaderUrl = buildUrl + "/webgl2.loader.js";
       const config = {
-        dataUrl: buildUrl + "/TestWebGL8.data",
-        frameworkUrl: buildUrl + "/TestWebGL8.framework.js",
-        codeUrl: buildUrl + "/TestWebGL8.wasm",
+        dataUrl: buildUrl + "/webgl2.data",
+        frameworkUrl: buildUrl + "/webgl2.framework.js",
+        codeUrl: buildUrl + "/webgl2.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "VALUMEGames",
-        productName: "PewDiePie Game: Subscribe cliker",
-        productVersion: "0.2",
+        companyName: "DefaultCompany",
+        productName: "MemeGame",
+        productVersion: "1.0",
       };
 
       const container = document.querySelector("#unity-container");
@@ -59,11 +59,12 @@
         return false;
       }());
 
+          config.devicePixelRatio = 1;
+
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
         config.devicePixelRatio = 1;
       }
-      canvas.style.background = "url('" + buildUrl + "/TestWebGL8.jpg') center / cover";
       loadingCover.style.display = "";
 
       const script = document.createElement("script");
@@ -89,9 +90,10 @@
       };
       document.body.appendChild(script);
       </script>
+
       <script type='text/javascript'>/*
-          WebGLInject - Part of Simple Spectrum V2.1 by Sam Boyer.
-          */
+                              WebGLInject - Part of Simple Spectrum V2.1 by Sam Boyer.
+                              */
 
           window.SimpleSpectrum = {};
 
@@ -126,5 +128,6 @@
                   return ac; //send our modified AudioContext back to Unity.
               }
           })();</script>
+
   </body>
 </html>

@@ -22,16 +22,53 @@
           </div>
       </div>
       <div id="unity-fullscreen-button" style="display: none;"></div>
+      <script type='text/javascript'>/*
+                    WebGLInject - Part of Simple Spectrum V2.1 by Sam Boyer.
+                    */
+
+          window.SimpleSpectrum = {};
+
+          window.AudioContext = (function () {
+              var ACConsructor = window.AudioContext || window.webkitAudioContext; //keep a reference to the original function
+
+              //console.log('AudioContext Constructor overriden');
+
+              return function () {
+                  var ac = new ACConsructor();
+
+                  //console.log('AudioContext constructed');
+
+                  window.SimpleSpectrum.ac = ac;
+
+                  window.SimpleSpectrum.a = ac.createAnalyser();
+                  window.SimpleSpectrum.a.smoothingTimeConstant = 0;
+
+                  window.SimpleSpectrum.fa = new Uint8Array(window.SimpleSpectrum.a.frequencyBinCount); //frequency array, size of frequencyBinCount
+
+                  window.SimpleSpectrum.la = new Uint8Array(window.SimpleSpectrum.a.fftSize); //loudness array, size of fftSize
+
+                  window.SimpleSpectrum.a.connect(ac.destination); //connect the AnalyserNode to the AudioContext's destination.
+
+                  ac.actualDestination = ac.destination; //keep a reference to the destination.
+
+                  Object.defineProperty(ac, 'destination', { //replace ac.destination with our AnalyserNode.
+                      value: window.SimpleSpectrum.a,
+                      writable: false
+                  });
+
+                  return ac; //send our modified AudioContext back to Unity.
+              }
+          })();</script>
       <script>
-      const hideFullScreenButton = "1";
+      const hideFullScreenButton = "";
       const buildUrl = "Build";
       const loaderUrl = buildUrl + "/webgl2.loader.js";
       const config = {
-        dataUrl: buildUrl + "/webgl2.data",
-        frameworkUrl: buildUrl + "/webgl2.framework.js",
-        codeUrl: buildUrl + "/webgl2.wasm",
+        dataUrl: buildUrl + "/webgl2.data.br",
+        frameworkUrl: buildUrl + "/webgl2.framework.js.br",
+        codeUrl: buildUrl + "/webgl2.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "OneManStruggle",
+        companyName: "DefaultCompany",
         productName: "MemeGame",
         productVersion: "1.0",
       };
@@ -89,46 +126,5 @@
       document.body.appendChild(script);
       </script>
 
-      <script type='text/javascript'>/*
-          WebGLInject - Part of Simple Spectrum V2.1 by Sam Boyer.
-          */
-
-          window.SimpleSpectrum = {};
-
-          window.AudioContext = (function () {
-              var ACConsructor = window.AudioContext || window.webkitAudioContext; //keep a reference to the original function
-
-              //console.log('AudioContext Constructor overriden');
-
-              return function () {
-                  var ac = new ACConsructor();
-
-                  //console.log('AudioContext constructed');
-
-                  window.SimpleSpectrum.ac = ac;
-
-                  window.SimpleSpectrum.a = ac.createAnalyser();
-                  window.SimpleSpectrum.a.smoothingTimeConstant = 0;
-
-                  window.SimpleSpectrum.fa = new Uint8Array(window.SimpleSpectrum.a.frequencyBinCount); //frequency array, size of frequencyBinCount
-
-                  window.SimpleSpectrum.la = new Uint8Array(window.SimpleSpectrum.a.fftSize); //loudness array, size of fftSize
-
-                  window.SimpleSpectrum.a.connect(ac.destination); //connect the AnalyserNode to the AudioContext's destination.
-
-                  ac.actualDestination = ac.destination; //keep a reference to the destination.
-
-                  Object.defineProperty(ac, 'destination', { //replace ac.destination with our AnalyserNode.
-                      value: window.SimpleSpectrum.a,
-                      writable: false
-                  });
-
-                  return ac; //send our modified AudioContext back to Unity.
-              }
-          })();</script>
-
-
-      --Or have this minified one!--
-      <script>window.SimpleSpectrum = {}; window.AudioContext = (function () { var q = window.AudioContext || window.webkitAudioContext; return function () { var ac = new q(); window.SimpleSpectrum.ac = ac; window.SimpleSpectrum.a = ac.createAnalyser(); window.SimpleSpectrum.a.smoothingTimeConstant = 0; window.SimpleSpectrum.fa = new Uint8Array(window.SimpleSpectrum.a.frequencyBinCount); window.SimpleSpectrum.la = new Uint8Array(window.SimpleSpectrum.a.fftSize); window.SimpleSpectrum.a.connect(ac.destination); ac.actualDestination = ac.destination; Object.defineProperty(ac, 'destination', { value: window.SimpleSpectrum.a, writable: false }); return ac; } })();</script>
   </body>
 </html>
